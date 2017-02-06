@@ -1,0 +1,10 @@
+<%if @medium.valid?%>
+	if($("#journalist_new_form").html() != undefined){
+	    $('#medium-new-modal').find('.close').click();
+		var select = $("#journalist_new_form").find("select");
+	    select.val($(select.find('option')[0]).val());
+	    select.find('option').last().before('<option value="<%=@medium.id%>"><%=@medium.name%></option>')
+    };
+<%else%>
+	alert("<%=@medium.errors.full_messages.first%>");
+<%end%>

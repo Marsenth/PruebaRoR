@@ -1,0 +1,21 @@
+<div id="journalists_new">
+	<p id="journalists_title">Lista de Periodistas</p>
+	<table id='journalists_table'>
+		<tr>
+			<th class='half-width'>Nombre</th>
+			<th class='half-width'>Medio</th>
+		</tr>
+		<% @journalists.each do |journalist| %>
+			<tr>
+				<td class='half-width'><%=journalist.name%></td>
+				<td class='half-width'><%=journalist.medium.name%></td>
+			</tr>
+		<%end%>
+	</table>
+
+	<button type="button" class="custom-btn" data-toggle="modal" data-target="#journalist-new-modal">Crear nuevo</button>
+
+	<%=render partial: 'new_form_modal'%>
+	<%=render partial: 'mediums/new_form_modal'%>
+
+</div>

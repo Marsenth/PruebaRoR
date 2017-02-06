@@ -1,0 +1,10 @@
+<%= form_for :medium, url: url_for(controller:'mediums', action:'create'), remote:true, method: :post, html:{id:'medium_new_form', class:'new_form'} do |f| %>
+	<div class="att-col half-width">
+	    <%= f.label 'Nombre' %>
+	    <%= f.text_field :name, class:'all-width' %>
+	</div>
+	<div class='att-col all-width'>
+		<%= f.submit 'registrar', id:'medium_submit_btn', class:'new_submit_btn' %>
+	</div>
+	<span class="clean"></span>
+<%end%>

@@ -1,0 +1,7 @@
+<%if @journalist.valid?%>
+	$('#journalist-new-modal').find('.close').click();
+	$('#journalist_name').val('');
+	$('#journalists_table').append('<tr><td><%=@journalist.name%></td><td><%=@journalist.medium.name%></td></tr>')
+<%else%>
+	alert("<%=@journalist.errors.full_messages.first%>");
+<%end%>

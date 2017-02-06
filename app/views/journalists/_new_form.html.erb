@@ -1,0 +1,24 @@
+<%= form_for :journalist, url: url_for(controller:'journalists', action:'create'), remote:true, method: :post, html:{id:'journalist_new_form', class:'new_form'} do |f| %>
+	<div class="att-col half-width">
+	    <%= f.label 'Nombre' %>
+	    <%= f.text_field :name, placeholder:'nombre de periodista', class:'all-width' %>
+	</div>
+	<div class="att-col half-width">
+		<%= f.label 'Medio' %>
+		<%#= f.collection_select(:medium_id, Medium.all, :id, :name, {}, {class:'all-width'}) %>
+		<select id="journalist_select" name="journalist[medium_id]" class="all-width">
+			<option selected> -- selecciona una medio -- </option>
+	       	<%= @mediums.each do |m| %>
+				<option value="<%=m.id%>"><%=m.name%></option>
+			<%end%>
+			<option value="create">
+				crear
+			</option>
+		</select> 
+		<span id="medium_new_modal_trigger" data-toggle="modal" data-target="#medium-new-modal"></span>
+	</div>
+	<div class='att-col all-width'>
+		<%= f.submit 'registrar', id:'journalist_submit_btn', class:'new_submit_btn' %>
+	</div>
+	<span class="clean"></span>
+<%end%>
