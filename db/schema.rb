@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170205235821) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "journalists", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "medium_id"
-    t.index ["medium_id"], name: "index_journalists_on_medium_id"
+    t.index ["medium_id"], name: "index_journalists_on_medium_id", using: :btree
   end
 
   create_table "media", force: :cascade do |t|
